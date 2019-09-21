@@ -14,7 +14,7 @@ public class TestHandler {
 
     public Mono<ServerResponse> test(ServerRequest request) {
         HashMap<String, String> resp = new HashMap<>();
-        resp.put("message", "ok");
+        resp.put("message", "this is test handler");
 
         // return response
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)

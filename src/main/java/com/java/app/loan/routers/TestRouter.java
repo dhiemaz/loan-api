@@ -7,9 +7,14 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.*;
 
 @Configuration
-public class Router {
+public class TestRouter {
+    /***
+     * testRouter specific router for testing endpoint
+     * @param testHandler
+     * @return
+     */
     @Bean
-    public RouterFunction<ServerResponse> route(TestHandler testHandler) {
+    public RouterFunction<ServerResponse> testRouter(TestHandler testHandler) {
         return RouterFunctions.route(RequestPredicates.GET("/loan/test")
                 .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), testHandler::test);
     }
