@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <Properties>
+        <property name="LOG_DIR" value="/tmp/loanApp" />
+        <property name="LOG_FILE" value="${LOG_DIR}/application" />
+        <property name="LOG_PATTERN" value="[%d{ISO8601}][%thread][%-5level][%logger][%X{requestId}] ### %msg%n" />
+    </Properties>
+
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>${LOG_PATTERN}</pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="Rolling-File-Appender" fileName="${LOG_FILE}.log" filePattern="${LOG_FILE}.%d{yyyy-MM-dd-hh-mm}.zip">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console-Appender"/>
+        </Root>
+    </Loggers>
+
+</configuration>
