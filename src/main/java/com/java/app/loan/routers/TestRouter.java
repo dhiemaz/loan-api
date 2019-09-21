@@ -13,7 +13,7 @@ public class TestRouter {
      * @param testHandler
      * @return
      */
-    @Bean
+    @Bean(name = "router-test")
     public RouterFunction<ServerResponse> testRouter(TestHandler testHandler) {
         return RouterFunctions.route(RequestPredicates.GET("/loan/test")
                 .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), testHandler::test);

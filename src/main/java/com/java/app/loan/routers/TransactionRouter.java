@@ -18,7 +18,7 @@ public class TransactionRouter {
      * @param loanHandler
      * @return
      */
-    @Bean
+    @Bean(name = "router-transaction")
     public RouterFunction<ServerResponse> transactionRouter(LoanHandler loanHandler) {
         return RouterFunctions.route(GET("/loan/transaction/new").and(accept(APPLICATION_JSON)), loanHandler::createTransaction)
                 .andRoute(GET("/loan/transactions").and(accept(APPLICATION_JSON)), loanHandler::getAllTransactions)

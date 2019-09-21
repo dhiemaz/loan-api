@@ -19,7 +19,7 @@ public class UserRouter {
      * @param userHandler
      * @return
      */
-    @Bean
+    @Bean(name = "router-user")
     public RouterFunction<ServerResponse> userRouter(UserHandler userHandler) {
         return RouterFunctions.route(GET("/loan/user/registration").and(accept(APPLICATION_JSON)), userHandler::userRegistration)
                 .andRoute(GET("/loan/user/login").and(accept(APPLICATION_JSON)), userHandler::userLogin)
