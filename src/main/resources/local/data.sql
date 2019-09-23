@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  fullname VARCHAR(150) NOT NULL,
+  address VARCHAR(200) DEFAULT NULL,
+  phone_prefix VARCHAR(3) DEFAULT NULL,
+  phone_number VARCHAR(3) DEFAULT NULL
+);
+
+CREATE TABLE transactions (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  user_id INT NOT NULL,
+  amount DECIMAL(10,0) NOT NULL,
+  term INT DEFAULT 0,
+  term_type VARCHAR(10) DEFAULT NULL,
+  issue_date DATE DEFAULT NULL,
+  created_at DATE DEFAULT NULL,
+  due_date DATE DEFAULT NULL,
+  interest REAL DEFAULT 0
+);
